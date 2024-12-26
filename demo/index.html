@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demo for Awesome Lightbox">
+  <title>Awesome Lightbox Demo</title>
+  <link rel="stylesheet" href="./lightbox.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      width: 90%;
+      max-width: 800px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Awesome Lightbox Demo</h1>
+  <div class="gallery" id="gallery">
+    <img src="https://via.placeholder.com/300/FF5733" alt="Image 1" data-caption="Beautiful Scene 1">
+    <img src="https://via.placeholder.com/300/33FF57" alt="Image 2" data-caption="Beautiful Scene 2">
+    <img src="https://via.placeholder.com/300/3357FF" alt="Image 3" data-caption="Beautiful Scene 3">
+    <img src="https://via.placeholder.com/300/F0A500" alt="Image 4" data-caption="Beautiful Scene 4">
+  </div>
+
+  <script type="module">
+    import AwesomeLightbox from './index.js';
+
+    // Initialize the lightbox
+    const lightbox = new AwesomeLightbox({
+      theme: 'dark', // 'light' or 'dark'
+      autoPlay: true,
+      autoPlayInterval: 4000,
+      onOpen: () => console.log('Lightbox opened!'),
+      onClose: () => console.log('Lightbox closed!'),
+      onImageChange: (index, image) => console.log('Image changed to:', index, image),
+    });
+
+    // Add event listeners to gallery images
+    const gallery = document.getElementById('gallery');
+    const images = Array.from(gallery.querySelectorAll('img')).map(img => ({
+      src: img.src,
+      caption: img.dataset.caption || ''
+    }));
+
+    gallery.addEventListener('click', event => {
+      if (event.target.tagName === 'IMG') {
+        const index = images.findIndex(image => image.src === event.target.src);
+        lightbox.show(images, index);
+      }
+    });
+  </script>
+
+</body>
+</html>
