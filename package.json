@@ -1,0 +1,35 @@
+{
+  "name": "awesome-lightbox",
+  "version": "1.0.0",
+  "description": "A responsive and feature-rich lightbox library for displaying images with beautiful UI and advanced functionality.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.js --out-dir dist",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "lightbox",
+    "image-gallery",
+    "responsive",
+    "UI",
+    "image-viewer",
+    "zoom",
+    "slideshow"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saikothasan/awesome-lightbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saikothasan/awesome-lightbox/issues"
+  },
+  "homepage": "https://github.com/saikothasan/awesome-lightbox#readme"
+}
