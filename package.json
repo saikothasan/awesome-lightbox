@@ -2,11 +2,10 @@
   "name": "awesome-lightbox",
   "version": "1.0.0",
   "description": "A responsive and feature-rich lightbox library for displaying images with beautiful UI and advanced functionality.",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.js --out-dir dist",
-    "test": "echo \"No tests specified\" && exit 0"
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
   },
   "keywords": [
     "lightbox",
@@ -19,11 +18,18 @@
   ],
   "author": "Your Name",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "parcel": "^2.9.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   },
-  "peerDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/saikothasan/awesome-lightbox.git"
